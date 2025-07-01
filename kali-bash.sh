@@ -70,18 +70,6 @@ apt-get install -y -qq libreoffice
 echo "    - Installing Docker..."
 apt-get install -y -qq docker.io
 
-# Install Sublime Text (requires adding repository if not already added)
-echo "    - Installing Sublime Text..."
-if ! command -v subl > /dev/null; then
-    # Add Sublime Text GPG key and repository
-    wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | apt-key add -
-    echo "deb https://download.sublimetext.com/ apt/stable/" | tee /etc/apt/sources.list.d/sublime-text.list
-    apt-get update -qq
-    apt-get install -y -qq sublime-text
-else
-    echo "      Sublime Text already installed"
-fi
-
 # Install Flameshot
 echo "    - Installing Flameshot..."
 apt-get install -y -qq flameshot
@@ -267,7 +255,27 @@ EOL
     echo "    - Session logging enabled"
 fi
 
-# ==================== COMPLETION ====================
+==================== COMPLETION ====================
 echo ""
 echo "[✓] All tasks completed successfully!"
 echo ""
+echo "=============================================="
+echo "Manual Setup Steps:"
+echo "1. Launch Mozilla Firefox at least once."
+echo "2. Install these recommended extensions:"
+echo "   - Cookie-Editor"
+echo "   - FoxyProxy"
+echo "   - Hack-Tools"
+echo "   - Wappalyzer"
+echo "3. Move all default bookmarks to a folder named 'Default'."
+echo "4. Add bookmarks for:"
+echo "     - Notion"
+echo "     - Poe"
+echo "     - HackTricks Assistant"
+echo "     - HackTricks"
+echo "5. Set up the Burp Suite certificate in Firefox (for HTTPS interception)."
+echo "6. Configure FoxyProxy:"
+echo "     - Add a profile for Burp: 127.0.0.1:1080"
+echo "     - Add a profile for Proxychains: 127.0.0.1:<proxychains.conf-port-here>"
+echo "=============================================="
+# ...existing code...
