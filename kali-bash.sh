@@ -78,6 +78,10 @@ apt-get install -y -qq flameshot
 echo "    - Installing download utilities..."
 apt-get install -y -qq wget unzip curl
 
+# Install isc-dhcp-client
+echo "    - Installing isc-dhcp-client..."
+apt-get install -y -qq isc-dhcp-client
+
 # Download and install Burp Suite Professional
 echo "    - Downloading Burp Suite Professional..."
 TEMP_DIR=$(mktemp -d)
@@ -278,4 +282,3 @@ echo "6. Configure FoxyProxy:"
 echo "     - Add a profile for Burp: 127.0.0.1:1080"
 echo "     - Add a profile for Proxychains: 127.0.0.1:<proxychains.conf-port-here>"
 echo "=============================================="
-# ...existing code...
