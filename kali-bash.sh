@@ -233,6 +233,15 @@ echo "    - Auto-lock disabled"
 # ==================== SYSTEM CONFIGURATION ====================
 echo "[*] Configuring system settings..."
 
+# Set DNS servers in /etc/resolv.conf
+echo "    - Setting DNS servers in /etc/resolv.conf..."
+cat <<EOF > /etc/resolv.conf
+nameserver 8.8.8.8      # Google Public DNS (Primary)
+nameserver 8.8.4.4      # Google Public DNS (Secondary)
+nameserver 1.1.1.1      # Cloudflare DNS (Primary)
+nameserver 1.0.0.1      # Cloudflare DNS (Secondary)
+EOF
+
 # Set keyboard layout to gb
 if grep -q '^XKBLAYOUT=' "$KEYBOARD_FILE"; then
     sed -i 's/^XKBLAYOUT=.*/XKBLAYOUT="gb"/' "$KEYBOARD_FILE"
